@@ -1,0 +1,11 @@
+<?php
+
+$assetUrl = $this->plugin('assetUrl');
+$this->headLink()->appendStylesheet($assetUrl('css/style.css', 'PageBlocks'));
+
+?>
+
+<div class="jumbotron-search">
+    <h1><?= $lorem_ipsum ?></h1>
+    <input type="text" placeholder="Search">
+</div>
