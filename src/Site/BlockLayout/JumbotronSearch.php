@@ -36,7 +36,8 @@ class JumbotronSearch extends AbstractBlockLayout
             
         if ($block->data()) {
             $form->setData([
-                'o:block[__blockIndex__][o:data][lorem_ipsum]' => $block->dataValue('lorem_ipsum')
+                'o:block[__blockIndex__][o:data][header]' => $block->dataValue('header'),
+                'o:block[__blockIndex__][o:data][subheader]' => $block->dataValue('subheader')
             ]);
         }
         
@@ -46,7 +47,8 @@ class JumbotronSearch extends AbstractBlockLayout
     public function render(PhpRenderer $view, SitePageBlockRepresentation $block)
     {
         return $view->partial('common/block-layout/jumbotron-search', [
-            'lorem_ipsum' => $block->dataValue('lorem_ipsum')
+            'header' => $block->dataValue('header'),
+            'subheader' => $block->dataValue('subheader')
         ]);
     }
 }
