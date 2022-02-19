@@ -5,6 +5,7 @@ This module adds additional modular, customizable page elements. It was built to
 The currently available blocks are:
 
 * Jumbotron search
+* Media + single column
 
 ## Installation
 

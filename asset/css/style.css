@@ -57,3 +57,20 @@
     line-height: 1em;
     content: "\f002";
 }
+
+.col-container {
+    display: flex;
+    gap: 32px;
+}
+
+.col-container > .col-single {
+    flex-basis: 100%;
+}
+
+.col-single p:first-child {
+    margin-top: 0;
+}
+
+.col-single img {
+    width: 100%;
+}

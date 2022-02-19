@@ -11,11 +11,13 @@ return [
     'block_layouts' => [
         'factories' => [
             'jumbotron-search' => Service\BlockLayout\JumbotronSearchFactory::class,
+            'media-single' => Service\BlockLayout\MediaSingleFactory::class,
         ],
     ],
     'form_elements' => [
         'invokables' => [
             Form\JumbotronSearchForm::class => Form\JumbotronSearchForm::class,
+            Form\MediaSingleForm::class => Form\MediaSingleForm::class,
         ],
     ],
 ];
