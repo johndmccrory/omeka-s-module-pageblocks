@@ -34,7 +34,7 @@ class ThreeColumn extends AbstractBlockLayout
     ) {
         $form = $this->formElementManager->get(ThreeColumnForm::class);
             
-        if ($block->data()) {
+        if ($block && $block->data()) {
             $form->setData([
                 'o:block[__blockIndex__][o:data][html1]' => $block->dataValue('html1'),
                 'o:block[__blockIndex__][o:data][html2]' => $block->dataValue('html2'),

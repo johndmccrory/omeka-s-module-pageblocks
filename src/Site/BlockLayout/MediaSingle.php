@@ -34,7 +34,7 @@ class MediaSingle extends AbstractBlockLayout
     ) {
         $form = $this->formElementManager->get(MediaSingleForm::class);
             
-        if ($block->data()) {
+        if ($block && $block->data()) {
             $form->setData([
                 'o:block[__blockIndex__][o:data][html]' => $block->dataValue('html')
             ]);

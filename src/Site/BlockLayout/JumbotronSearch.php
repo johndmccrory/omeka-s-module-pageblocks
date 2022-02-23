@@ -34,7 +34,7 @@ class JumbotronSearch extends AbstractBlockLayout
     ) {
         $form = $this->formElementManager->get(JumbotronSearchForm::class);
             
-        if ($block->data()) {
+        if ($block && $block->data()) {
             $form->setData([
                 'o:block[__blockIndex__][o:data][header]' => $block->dataValue('header'),
                 'o:block[__blockIndex__][o:data][subheader]' => $block->dataValue('subheader')
