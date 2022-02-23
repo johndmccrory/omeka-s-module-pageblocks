@@ -6,6 +6,8 @@ The currently available blocks are:
 
 * Jumbotron search
 * Media + single column
+* Two column HTML
+* Three column HTML
 
 ## Installation
 

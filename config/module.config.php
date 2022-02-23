@@ -12,12 +12,16 @@ return [
         'factories' => [
             'jumbotron-search' => Service\BlockLayout\JumbotronSearchFactory::class,
             'media-single' => Service\BlockLayout\MediaSingleFactory::class,
+            'two-column' => Service\BlockLayout\TwoColumnFactory::class,
+            'three-column' => Service\BlockLayout\ThreeColumnFactory::class
         ],
     ],
     'form_elements' => [
         'invokables' => [
             Form\JumbotronSearchForm::class => Form\JumbotronSearchForm::class,
             Form\MediaSingleForm::class => Form\MediaSingleForm::class,
+            Form\TwoColumnForm::class => Form\TwoColumnForm::class,
+            Form\ThreeColumnForm::class => Form\ThreeColumnForm::class
         ],
     ],
 ];
