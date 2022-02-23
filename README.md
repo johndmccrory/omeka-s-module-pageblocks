@@ -8,10 +8,15 @@ The currently available blocks are:
 * Media + single column
 * Two column HTML
 * Three column HTML
+* List of topics
 
 ## Installation
 
 Use the zipped releases provided on GitHub for a standard install.
+
+## Known Bugs
+
+See GitHub issues page.
 
 ## License
 
