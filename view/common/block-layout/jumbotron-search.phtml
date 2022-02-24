@@ -17,7 +17,7 @@ $searchValue = $this->escapeHtml($this->params()->fromQuery('fulltext_search', '
 
 ?>
 
-<div class="jumbotron-search">
+<section class="jumbotron-search">
     <h1><?= $header ?></h1>
     <?php if ($subheader): ?>
         <p><?= $subheader ?></p>
@@ -30,4 +30,4 @@ $searchValue = $this->escapeHtml($this->params()->fromQuery('fulltext_search', '
     </form>
     
     <?php echo $this->hyperlink($translate('Advanced search') . '...', $this->url('site', [], true) . "/item/search", ['class' => 'advanced-search']); ?>
-</div>
+</section>
