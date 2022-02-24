@@ -63,13 +63,22 @@
 }
 
 .col-container {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 32px;
     line-height: 1.5;
 }
 
-.col-container > .col-single {
-    flex-basis: 100%;
+.col-container.col-media-container {
+    grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+}
+
+.col-media-container .media-render .vimeo-sidebar {
+    display: none;
+}
+
+.col-media-container .media-render #vimeo-volume {
+    max-width: 90px;
 }
 
 .col-single p:first-child {
