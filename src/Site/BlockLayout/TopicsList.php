@@ -47,7 +47,9 @@ class TopicsList extends AbstractBlockLayout
             
         if ($block && $block->data()) {
             $form->setData([
-                'o:block[__blockIndex__][o:data][header]' => $block->dataValue('header')
+                'o:block[__blockIndex__][o:data][header]' => $block->dataValue('header'),
+                'o:block[__blockIndex__][o:data][button_color]' => $block->dataValue('button_color'),
+                'o:block[__blockIndex__][o:data][text_color]' => $block->dataValue('text_color')
             ]);
         }
         
@@ -60,6 +62,8 @@ class TopicsList extends AbstractBlockLayout
     {
         return $view->partial('common/block-layout/topics-list', [
             'header' => $block->dataValue('header'),
+            'buttonColor' => $block->dataValue('button_color'),
+            'textColor' => $block->dataValue('text_color'),
             'topics' => $block->dataValue('topics')
         ]);
     }

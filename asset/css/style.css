@@ -118,14 +118,17 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background: #e8e8e8;
+    background: var(--button-color, #e7e7e7);
+    color: var(--text-color, #000);
     border-radius: 8px;
     padding: 12px;
-    transition: background 0.3s ease;
+    opacity: 0.85;
+    transition: opacity 0.3s ease;
 }
 
-.topic-single:hover {
-    background: #ddd;
+.topic-single:hover,
+.topic-single:focus {
+    opacity: 1;
 }
 
 .topic-single h4 {
