@@ -25,7 +25,7 @@ class TopicsListSidebarForm extends Fieldset
             'type' => Element\Text::class,
             'options' => [
                 'label' => 'Icon name', // @translate
-                'info' => 'Font Awesome 5 icon class name',
+                'info' => 'Font Awesome 5 icon class name', // @translate
                 'documentation' => 'https://fontawesome.com/v5/search?m=free'
             ],
             'attributes' => [
