@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-03-01 17:39-0500\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2022-04-07 14:52-0400\n"
 "Last-Translator: Ivy Rose <ivy@msu.edu>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -53,6 +53,14 @@ msgstr ""
 msgid "The search to be performed when the topic is clicked"
 msgstr ""
 
+#: src/Form/MediaDetailsForm.php:16
+msgid "Show item heading"
+msgstr ""
+
+#: src/Form/MediaDetailsForm.php:30
+msgid "Additional metadata"
+msgstr ""
+
 #: src/Form/ThreeColumnForm.php:15 src/Form/TwoColumnForm.php:15
 msgid "First column"
 msgstr ""
@@ -87,6 +95,10 @@ msgstr ""
 
 #: src/Site/BlockLayout/TwoColumn.php:29
 msgid "Two column HTML"
+msgstr ""
+
+#: src/Site/BlockLayout/MediaDetails.php:29
+msgid "Media embed + details"
 msgstr ""
 
 #: src/Site/BlockLayout/MediaSingle.php:29

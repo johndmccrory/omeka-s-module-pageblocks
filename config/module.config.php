@@ -11,6 +11,7 @@ return [
     'block_layouts' => [
         'factories' => [
             'jumbotron-search' => Service\BlockLayout\JumbotronSearchFactory::class,
+            'media-details' => Service\BlockLayout\MediaDetailsFactory::class,
             'media-single' => Service\BlockLayout\MediaSingleFactory::class,
             'two-column' => Service\BlockLayout\TwoColumnFactory::class,
             'three-column' => Service\BlockLayout\ThreeColumnFactory::class,

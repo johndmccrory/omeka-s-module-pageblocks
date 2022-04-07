@@ -101,6 +101,22 @@
     margin-top: 24px;
 }
 
+.media-details-container > .col-single:only-child {
+    width: 100%;
+    max-width: 600px;
+    margin: auto;
+}
+
+.media-details-container .media-render + h4,
+.media-details-container .media-render + p {
+    margin-top: 18px;
+}
+
+.media-details-container h4,
+.media-details-container p {
+    margin: 12px 0;
+}
+
 .topics-container h2 {
     text-align: center;
     margin-top: 0;
