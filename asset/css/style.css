@@ -73,14 +73,6 @@
     grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
 }
 
-.col-media-container .media-render .vimeo-sidebar {
-    display: none;
-}
-
-.col-media-container .media-render #vimeo-volume {
-    max-width: 90px;
-}
-
 .col-single p:first-child {
     margin-top: 0;
 }
