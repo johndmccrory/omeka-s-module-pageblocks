@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-03-01 17:39-0500\n"
-"PO-Revision-Date: 2022-04-07 14:57-0400\n"
+"PO-Revision-Date: 2022-06-12 09:46-0400\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: es\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.0.1\n"
+"X-Generator: Poedit 3.1\n"
 
 #: src/Site/BlockLayout/MediaSingle.php:44
 msgid "Content"
@@ -52,7 +52,7 @@ msgstr "Font Awesome 5 icono nombre de clase"
 
 #: src/Form/TopicsListSidebarForm.php:41
 msgid "The search to be performed when the topic is clicked"
-msgstr "La búsqueda que se realizará cuando se haga clic en el tema"
+msgstr "La búsqueda que se realizará cuando se seleccione el tema"
 
 #: src/Form/MediaDetailsForm.php:16
 msgid "Show item heading"
