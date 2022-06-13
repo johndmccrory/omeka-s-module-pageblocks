@@ -2,14 +2,8 @@
     padding: 32px 0;
 }
 
-.jumbotron-search {
-    max-width: 780px;
-    margin: auto;
-}
-
-.jumbotron-search h1,
-.jumbotron-search p {
-    text-align: center;
+#content > h2 + section {
+    padding-top: 0;
 }
 
 .jumbotron-search h1 {
@@ -18,21 +12,22 @@
 
 .jumbotron-search p {
     margin: 0 0 36px;
-    opacity: 0.75;
+    opacity: 0.8;
 }
 
 .jumbotron-search form {
     display: flex;
     align-items: center;
-    margin-bottom: 12px;
+    margin-bottom: 16px;
     padding: 2px 6px;
     background: #FFF;
     border: 1px solid #CCC;
     border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
 }
 
 .jumbotron-search form:focus-within {
-    outline: 5px auto -webkit-focus-ring-color;
+    outline: 5px auto var(--accent-color, -webkit-focus-ring-color);
 }
 
 .jumbotron-search input,
@@ -44,8 +39,8 @@
 }
 
 .jumbotron-search input[type="text"] {
-    font-size: 24px;
-    height: 52px;
+    font-size: 26px;
+    height: 62px;
 }
 
 .jumbotron-search button[type="submit"] {
@@ -110,7 +105,6 @@
 }
 
 .topics-container h2 {
-    text-align: center;
     margin-top: 0;
 }
 
@@ -126,8 +120,8 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background: var(--button-color, #e7e7e7);
-    color: var(--text-color, #000);
+    background: var(--button-color, #DDD);
+    color: var(--text-color, #222);
     border-radius: 8px;
     padding: 12px;
     opacity: 0.85;
