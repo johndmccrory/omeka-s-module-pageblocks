@@ -18,6 +18,11 @@ return [
             'topics-list' => Service\BlockLayout\TopicsListFactory::class
         ],
     ],
+    'resource_page_block_layouts' => [
+        'factories' => [
+            'smart-embeds' => Service\ResourcePageBlockLayout\SmartEmbedsFactory::class
+        ],
+    ],
     'form_elements' => [
         'invokables' => [
             Form\JumbotronSearchForm::class => Form\JumbotronSearchForm::class,

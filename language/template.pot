@@ -104,3 +104,7 @@ msgstr ""
 #: src/Site/BlockLayout/MediaSingle.php:29
 msgid "Media + single column"
 msgstr ""
+
+#: src/Site/ResourcePageBlockLayout:30
+msgid "Smart embeds"
+msgstr ""
