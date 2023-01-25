@@ -44,17 +44,11 @@
 }
 
 .jumbotron-search button[type="submit"] {
+    font-size: 24px;
+    line-height: 1em;
     color: #000;
     margin: 0;
     padding: 0 8px;
-    line-height: 0;
-}
-
-.jumbotron-search button[type="submit"]:before {
-    font-family: "Font Awesome 5 Free";
-    font-size: 24px;
-    line-height: 1em;
-    content: "\f002";
 }
 
 .col-container {
