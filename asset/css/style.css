@@ -129,6 +129,7 @@
 
 .topic-single h4 {
     margin: 4px 0 0;
+    color: inherit;
 }
 
 .topic-single h4:first-child {
