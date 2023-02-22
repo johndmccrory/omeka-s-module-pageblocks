@@ -6,6 +6,87 @@
     padding-top: 0;
 }
 
+#content .image-banner:first-child {
+    padding-top: 0;
+}
+
+.image-banner .image-container img,
+.image-banner .image-container::after,
+.image-banner .overlay-container {
+    height: clamp(350px, 35vh, 500px);
+}
+
+.image-banner .image-container::after {
+    content: '';
+    display: block;
+    opacity: 0.4;
+}
+
+.image-banner.tint-dark {
+    color: #fff;
+}
+
+.image-banner.tint-light {
+    color: #000;
+}
+
+.image-banner.tint-dark .image-container::after {
+    background-color: #000;
+}
+
+.image-banner.tint-light .image-container::after {
+    background-color: #fff;
+}
+
+.image-banner .image-container img,
+.image-banner .image-container::after {
+    width: 100%;
+    position: absolute;
+    left: 0;
+    right: 0;
+}
+
+.image-banner .image-container img {
+    object-fit: cover;
+    object-position: center 25%;
+}
+
+.image-banner .overlay-container {
+    position: relative;
+    padding-block: 42px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.image-banner .overlay-container > * {
+    color: inherit;
+}
+
+.image-banner .overlay-container > h1 {
+    font-weight: 800;
+    margin: 0;
+}
+
+.image-banner .overlay-container > p {
+    opacity: 0.8;
+    margin-block: 0.5em;
+}
+
+html.theme-multilingual #content > .image-banner:first-child {
+    margin-top: -37px;
+}
+
+@media screen and (max-width: 640px) {
+    html.theme-multilingual #content > .image-banner:first-child {
+        margin-top: -15px;
+    }
+    
+    html.theme-multilingual nav.open + #content > .image-banner:first-child {
+        margin-top: -25px;
+    }
+}
+
 .jumbotron-search h1 {
     margin-bottom: 14px;
 }

@@ -10,6 +10,7 @@ return [
     ],
     'block_layouts' => [
         'factories' => [
+            'image-banner' => Service\BlockLayout\ImageBannerFactory::class,
             'jumbotron-search' => Service\BlockLayout\JumbotronSearchFactory::class,
             'media-details' => Service\BlockLayout\MediaDetailsFactory::class,
             'media-single' => Service\BlockLayout\MediaSingleFactory::class,
@@ -25,6 +26,7 @@ return [
     ],
     'form_elements' => [
         'invokables' => [
+            Form\ImageBannerForm::class => Form\ImageBannerForm::class,
             Form\JumbotronSearchForm::class => Form\JumbotronSearchForm::class,
             Form\MediaSingleForm::class => Form\MediaSingleForm::class,
             Form\TwoColumnForm::class => Form\TwoColumnForm::class,
