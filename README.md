@@ -6,10 +6,11 @@ The currently available page blocks are:
 
 * Jumbotron search
 * Image banner
+* Call to action
+* List of topics
 * Media + single column
 * Two column HTML
 * Three column HTML
-* List of topics
 
 There are also resource page blocks available:
 
