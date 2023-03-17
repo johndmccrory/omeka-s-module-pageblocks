@@ -1,6 +1,5 @@
 html,
 body {
-    position: relative;
     overflow-x: hidden;
 }
 
@@ -16,10 +15,8 @@ body {
     padding-top: 0;
 }
 
-.image-banner .image-container img,
-.image-banner .image-container::after,
-.image-banner .overlay-container {
-    height: clamp(350px, 35vh, 500px);
+.image-banner {
+    position: relative;
 }
 
 .image-banner .image-container::after {
@@ -49,11 +46,17 @@ body {
 }
 
 .image-banner .image-container img,
+.image-banner .image-container::after,
+.cta-container::before {
+    width: 100vw;
+    margin-left: 50%;
+    transform: translateX(-50%);
+}
+
+.image-banner .image-container img,
 .image-banner .image-container::after {
-    width: 100%;
     position: absolute;
-    left: 0;
-    right: 0;
+    height: 100%;
 }
 
 .image-banner .image-container img {
@@ -63,6 +66,7 @@ body {
 
 .image-banner .overlay-container {
     position: relative;
+    min-height: clamp(350px, 35vh, 500px);
     padding-block: 42px;
     display: flex;
     flex-direction: column;
@@ -98,10 +102,8 @@ body {
 
 .cta-container::before {
     content: '';
-    display: block;
     position: absolute;
-    inset: 0 -100vw;
-    z-index: -1;
+    inset: 0;
     background-color: var(--background-color, #1e1e1e);
 }
 
