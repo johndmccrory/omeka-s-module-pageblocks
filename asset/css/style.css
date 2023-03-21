@@ -105,6 +105,7 @@ body {
     position: absolute;
     inset: 0;
     background-color: var(--background-color, #1e1e1e);
+    z-index: -1;
 }
 
 .cta-container > h2 {
