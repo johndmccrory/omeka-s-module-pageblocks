@@ -7,6 +7,7 @@ The currently available page blocks are:
 * Jumbotron search
 * Image banner
 * Call to action
+* Team members
 * List of topics
 * Media + single column
 * Two column HTML

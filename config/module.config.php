@@ -15,6 +15,7 @@ return [
             'jumbotron-search' => Service\BlockLayout\JumbotronSearchFactory::class,
             'media-details' => Service\BlockLayout\MediaDetailsFactory::class,
             'media-single' => Service\BlockLayout\MediaSingleFactory::class,
+            'team-members' => Service\BlockLayout\TeamMembersFactory::class,
             'two-column' => Service\BlockLayout\TwoColumnFactory::class,
             'three-column' => Service\BlockLayout\ThreeColumnFactory::class,
             'topics-list' => Service\BlockLayout\TopicsListFactory::class
@@ -31,6 +32,8 @@ return [
             Form\ImageBannerForm::class => Form\ImageBannerForm::class,
             Form\JumbotronSearchForm::class => Form\JumbotronSearchForm::class,
             Form\MediaSingleForm::class => Form\MediaSingleForm::class,
+            Form\TeamMembersForm::class => Form\TeamMembersForm::class,
+            Form\TeamMembersSidebarForm::class => Form\TeamMembersSidebarForm::class,
             Form\TwoColumnForm::class => Form\TwoColumnForm::class,
             Form\ThreeColumnForm::class => Form\ThreeColumnForm::class,
             Form\TopicsListForm::class => Form\TopicsListForm::class,
