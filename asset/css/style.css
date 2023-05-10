@@ -3,8 +3,26 @@ body {
     overflow-x: hidden;
 }
 
-#content > section {
-    padding: 32px 0;
+#content > section + section,
+#content > section + div,
+#content > div + section,
+#content > div + div {
+    margin-top: 72px;
+}
+
+#content > section + section.call-to-action,
+#content > div + section.call-to-action,
+#content > section.call-to-action + section,
+#content > section.call-to-action + div,
+#content > section + section.image-banner,
+#content > div + section.image-banner,
+#content > section.image-banner + section,
+#content > section.image-banner + div {
+    margin-top: 80px;
+}
+
+#content > section:last-child {
+    margin-bottom: 36px;
 }
 
 #content > h2 + section {
@@ -61,7 +79,7 @@ body {
 
 .image-banner .image-container img {
     object-fit: cover;
-    object-position: center 25%;
+    object-position: center center;
 }
 
 .image-banner .overlay-container {
@@ -97,7 +115,7 @@ body {
 .cta-container {
     max-width: 700px;
     margin-inline: auto;
-    padding-block: 12px;
+    padding-block: 46px;
 }
 
 .cta-container::before {
@@ -129,12 +147,12 @@ body {
 
 html.theme-multilingual #content > .image-banner:first-child,
 html.theme-multilingual #content > .call-to-action:first-child {
-    margin-top: -37px;
+    margin-top: -49px;
 }
 
 html.theme-multilingual #content > .image-banner:last-child,
 html.theme-multilingual #content > .call-to-action:last-child {
-    margin-bottom: -37px;
+    margin-bottom: -49px;
 }
 
 @media screen and (max-width: 640px) {
@@ -208,6 +226,7 @@ html.theme-multilingual #content > .call-to-action:last-child {
 
 .col-container.col-media-container {
     grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+    gap: 48px;
 }
 
 .col-single p:first-child {
@@ -256,7 +275,6 @@ html.theme-multilingual #content > .call-to-action:last-child {
     grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
     grid-auto-rows: 1fr;
     gap: 8px;
-    margin-bottom: 20px;
 }
 
 .topic-single {
