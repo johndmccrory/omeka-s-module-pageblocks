@@ -5,6 +5,7 @@ namespace PageBlocks;
 use Omeka\Module\AbstractModule;
 use Laminas\EventManager\SharedEventManagerInterface;
 use PageBlocks\Form\TopicsListSidebarForm;
+use PageBlocks\Form\TeamMembersSidebarForm;
 
 class Module extends AbstractModule
 {
@@ -29,9 +30,11 @@ class Module extends AbstractModule
         );
     }
     
-    function addSidebar($event) {
+    function addSidebar($event)
+    {
         $view = $event->getTarget();
         echo $view->sidebar('topic-sidebar', TopicsListSidebarForm::class);
+        echo $view->sidebar('member-sidebar', TeamMembersSidebarForm::class);
     }
 }
 
