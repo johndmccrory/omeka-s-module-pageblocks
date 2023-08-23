@@ -343,3 +343,54 @@ html.theme-multilingual #content > .call-to-action:last-child {
     object-fit: cover;
     border-radius: 10px;
 }
+
+.accordion-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.accordion-panel {
+    background: #f5f5f5;
+    border: 1px solid #eee;
+    border-radius: 8px;
+}
+
+html.theme-multilingual .accordion-panel {
+    background-color: #ededed;
+    border-color: #ddd;
+}
+
+.accordion-panel h3 {
+    margin: 0;
+}
+
+.accordion-trigger {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: transparent;
+    padding-block: 35px;
+}
+
+.accordion-content {
+    display: grid;
+    grid-template-rows: 1fr;
+    transition: 0.3s grid-template-rows ease,
+        0.3s visibility;
+}
+
+.accordion-trigger,
+.accordion-content {
+    padding-inline: 25px;
+}
+
+.accordion-content.collapsed {
+    grid-template-rows: 0fr;
+    visibility: hidden;
+}
+
+.accordion-content > div {
+    overflow: hidden;
+}
