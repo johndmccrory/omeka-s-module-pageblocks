@@ -10,6 +10,7 @@ return [
     ],
     'block_layouts' => [
         'factories' => [
+            'accordion-group' => Service\BlockLayout\AccordionGroupFactory::class,
             'call-to-action' => Service\BlockLayout\CallToActionFactory::class,
             'image-banner' => Service\BlockLayout\ImageBannerFactory::class,
             'jumbotron-search' => Service\BlockLayout\JumbotronSearchFactory::class,
@@ -28,6 +29,7 @@ return [
     ],
     'form_elements' => [
         'invokables' => [
+            Form\AccordionGroupForm::class => Form\AccordionGroupForm::class,
             Form\CallToActionForm::class => Form\CallToActionForm::class,
             Form\ImageBannerForm::class => Form\ImageBannerForm::class,
             Form\JumbotronSearchForm::class => Form\JumbotronSearchForm::class,

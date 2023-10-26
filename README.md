@@ -9,6 +9,7 @@ The currently available page blocks are:
 * Call to action
 * Team members
 * List of topics
+* Accordion group
 * Media + single column
 * Two column HTML
 * Three column HTML
