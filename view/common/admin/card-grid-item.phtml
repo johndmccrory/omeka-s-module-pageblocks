@@ -12,7 +12,9 @@ $translate = $this->plugin('translate');
         <li class="undo"><a class="o-icon-undo button" title="<?= $translate('Restore attachment') ?>" href="#" aria-label="<?= $translate('Restore attachment') ?>"></a></li>
     </ul>
     
+    <input type="hidden" data-sidebar-id="card-data-icon" name="o:block[__blockIndex__][o:data][cards][__attachmentIndex__][icon]" value="<?= $card['icon'] ?? '' ?>">
     <input type="hidden" data-sidebar-id="card-data-header" name="o:block[__blockIndex__][o:data][cards][__attachmentIndex__][header]" value="<?= $card['header'] ?? '' ?>">
     <input type="hidden" data-sidebar-id="card-data-body" name="o:block[__blockIndex__][o:data][cards][__attachmentIndex__][body]" value="<?= $card['body'] ?? '' ?>">
-    <input type="hidden" data-sidebar-id="card-data-icon" name="o:block[__blockIndex__][o:data][cards][__attachmentIndex__][icon]" value="<?= $card['icon'] ?? '' ?>">
+    <input type="hidden" data-sidebar-id="card-data-button-text" name="o:block[__blockIndex__][o:data][cards][__attachmentIndex__][button_text]" value="<?= $card['button_text'] ?? '' ?>">
+    <input type="hidden" data-sidebar-id="card-data-button-link" name="o:block[__blockIndex__][o:data][cards][__attachmentIndex__][button_link]" value="<?= $card['button_link'] ?? '' ?>">
 </div>

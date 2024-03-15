@@ -349,6 +349,16 @@ html.theme-multilingual #content > .call-to-action:last-child {
     border-radius: 10px;
 }
 
+.card-single .action-button {
+    display: inline-block;
+    font-weight: bold;
+    color: #fff;
+    background-color: var(--accent-color, #1e1e1e);
+    padding: 10px 24px;
+    border-radius: 12px;
+    margin-top: 16px;
+}
+
 .accordion-group {
     display: flex;
     flex-direction: column;

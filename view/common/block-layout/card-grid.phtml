@@ -18,9 +18,14 @@ $this->headLink()->appendStylesheet($assetUrl('css/style.css', 'PageBlocks'));
                         <img src="<?= $icon->assetUrl() ?>" alt="<?= $icon->altText() ?>" />
                     </div>
                 <?php endif; ?>
-                <div class="card-tagline">
+                <div class="card-content">
                     <h3><?= $card['header'] ?></h3>
                     <p><?= $card['body'] ?></p>
+                    <?php if ($card['button_text'] && $card['button_link']): ?>
+                        <a class="action-button" href="<?= $card['button_link'] ?>">
+                            <?= $card['button_text'] ?>
+                        </a>
+                    <?php endif; ?>
                 </div>
             </article>
         <?php endforeach; ?>
