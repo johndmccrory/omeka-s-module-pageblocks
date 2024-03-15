@@ -16,6 +16,7 @@ class CardGridSidebarForm extends Fieldset
                 'label' => 'Card header' // @translate
             ],
             'attributes' => [
+                'required' => true,
                 'data-sidebar-id' => 'card-data-header'
             ]
         ]);
@@ -27,6 +28,7 @@ class CardGridSidebarForm extends Fieldset
                 'label' => 'Card body' // @translate
             ],
             'attributes' => [
+                'required' => true,
                 'data-sidebar-id' => 'card-data-body'
             ]
         ]);

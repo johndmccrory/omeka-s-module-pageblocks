@@ -11,11 +11,13 @@ $this->headLink()->appendStylesheet($assetUrl('css/style.css', 'PageBlocks'));
     <?php endif; ?>
     <div class="card-grid-container">
         <?php foreach ($cards as $card): ?>
-            <?php $icon = $this->api()->read('assets', $card['icon'])->getContent(); ?>
             <article class="card-single">
-                <div class="card-icon">
-                    <img src="<?= $icon->assetUrl() ?>" alt="<?= $icon->altText() ?>" />
-                </div>
+                <?php if ($card['icon']): ?>
+                    <?php $icon = $this->api()->read('assets', $card['icon'])->getContent(); ?>
+                    <div class="card-icon">
+                        <img src="<?= $icon->assetUrl() ?>" alt="<?= $icon->altText() ?>" />
+                    </div>
+                <?php endif; ?>
                 <div class="card-tagline">
                     <h3><?= $card['header'] ?></h3>
                     <p><?= $card['body'] ?></p>
