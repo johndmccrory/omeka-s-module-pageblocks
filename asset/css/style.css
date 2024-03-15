@@ -323,7 +323,12 @@ html.theme-multilingual #content > .call-to-action:last-child {
 
 .card-single {
     display: flex;
+    flex-direction: column;
     gap: 24px;
+}
+
+.card-grid-container.grid-compact .card-single {
+    flex-direction: row;
 }
 
 .card-single h3 {

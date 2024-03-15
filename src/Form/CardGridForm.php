@@ -16,6 +16,14 @@ class CardGridForm extends Fieldset
                 'label' => 'Header text', // @translate
             ]
         ]);
+
+        $this->add([
+            'name' => 'o:block[__blockIndex__][o:data][compact]',
+            'type' => Element\Checkbox::class,
+            'options' => [
+                'label' => 'Compact mode', // @translate
+            ]
+        ]);
     }
 }
 ?>

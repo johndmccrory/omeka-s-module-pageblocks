@@ -9,7 +9,7 @@ $this->headLink()->appendStylesheet($assetUrl('css/style.css', 'PageBlocks'));
     <?php if ($header): ?>
         <h2><?= $header ?></h2>
     <?php endif; ?>
-    <div class="card-grid-container">
+    <div class="card-grid-container<?= $compact ? " grid-compact" : "" ?>">
         <?php foreach ($cards as $card): ?>
             <article class="card-single">
                 <?php if ($card['icon']): ?>

@@ -44,6 +44,7 @@ class CardGrid extends AbstractBlockLayout
         if ($block && $block->data()) {
             $form->populateValues([
                 'o:block[__blockIndex__][o:data][header]' => $block->dataValue('header'),
+                'o:block[__blockIndex__][o:data][compact]' => $block->dataValue('compact')
             ]);
         }
         
@@ -56,6 +57,7 @@ class CardGrid extends AbstractBlockLayout
     {
         return $view->partial('common/block-layout/card-grid', [
             'header' => $block->dataValue('header'),
+            'compact' => $block->dataValue('compact'),
             'cards' => $block->dataValue('cards')
         ]);
     }
