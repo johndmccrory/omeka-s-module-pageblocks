@@ -5,7 +5,7 @@ namespace PageBlocks;
 use Omeka\Module\AbstractModule;
 use Laminas\EventManager\SharedEventManagerInterface;
 use PageBlocks\Form\TopicsListSidebarForm;
-use PageBlocks\Form\TeamMembersSidebarForm;
+use PageBlocks\Form\CardGridSidebarForm;
 use PageBlocks\Form\AccordionGroupSidebarForm;
 
 class Module extends AbstractModule
@@ -35,7 +35,7 @@ class Module extends AbstractModule
     {
         $view = $event->getTarget();
         echo $view->sidebar('topic-sidebar', TopicsListSidebarForm::class);
-        echo $view->sidebar('member-sidebar', TeamMembersSidebarForm::class);
+        echo $view->sidebar('card-sidebar', CardGridSidebarForm::class);
         echo $view->sidebar('accordion-sidebar', AccordionGroupSidebarForm::class);
     }
 }

@@ -5,7 +5,7 @@ use Laminas\Form\Element;
 use Laminas\Form\Fieldset;
 use Omeka\Form\Element as OmekaElement;
 
-class TeamMembersForm extends Fieldset
+class CardGridForm extends Fieldset
 {
     public function init()
     {

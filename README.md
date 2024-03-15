@@ -7,7 +7,7 @@ The currently available page blocks are:
 * Jumbotron search
 * Image banner
 * Call to action
-* Team members
+* Card grid
 * List of topics
 * Accordion group
 * Media + single column

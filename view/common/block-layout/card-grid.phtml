@@ -1,0 +1,26 @@
+<?php
+
+$assetUrl = $this->plugin('assetUrl');
+$this->headLink()->appendStylesheet($assetUrl('css/style.css', 'PageBlocks'));
+
+?>
+
+<section class="card-grid">
+    <?php if ($header): ?>
+        <h2><?= $header ?></h2>
+    <?php endif; ?>
+    <div class="card-grid-container">
+        <?php foreach ($cards as $card): ?>
+            <?php $icon = $this->api()->read('assets', $card['icon'])->getContent(); ?>
+            <article class="card-single">
+                <div class="card-icon">
+                    <img src="<?= $icon->assetUrl() ?>" alt="<?= $icon->altText() ?>" />
+                </div>
+                <div class="card-tagline">
+                    <h3><?= $card['header'] ?></h3>
+                    <p><?= $card['body'] ?></p>
+                </div>
+            </article>
+        <?php endforeach; ?>
+    </div>
+</section>

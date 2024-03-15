@@ -7,10 +7,10 @@ use Omeka\Api\Representation\SitePageRepresentation;
 use Omeka\Api\Representation\SitePageBlockRepresentation;
 use Laminas\Form\FormElementManager;
 use Laminas\View\Renderer\PhpRenderer;
-use PageBlocks\Form\TeamMembersForm;
-use PageBlocks\Form\TeamMembersSidebarForm;
+use PageBlocks\Form\CardGridForm;
+use PageBlocks\Form\CardGridSidebarForm;
 
-class TeamMembers extends AbstractBlockLayout
+class CardGrid extends AbstractBlockLayout
 {
     /**
      * @var FormElementManager
@@ -27,19 +27,19 @@ class TeamMembers extends AbstractBlockLayout
     
     public function getLabel()
     {
-        return 'Team members'; // @translate
+        return 'Card grid'; // @translate
     }
     
     public function prepareForm(PhpRenderer $view)
     {
-        $view->headScript()->appendFile($view->assetUrl('js/team-members.js', 'PageBlocks'));
+        $view->headScript()->appendFile($view->assetUrl('js/card-grid.js', 'PageBlocks'));
         $view->headLink()->appendStylesheet($view->assetUrl('css/admin.css', 'PageBlocks'));
     }
 
     public function form(PhpRenderer $view, SiteRepresentation $site,
         SitePageRepresentation $page = null, SitePageBlockRepresentation $block = null
     ) {
-        $form = $this->formElementManager->get(TeamMembersForm::class);
+        $form = $this->formElementManager->get(CardGridForm::class);
             
         if ($block && $block->data()) {
             $form->populateValues([
@@ -47,16 +47,16 @@ class TeamMembers extends AbstractBlockLayout
             ]);
         }
         
-        return $view->formCollection($form) . $view->partial('common/admin/team-members', [
-            'members' => ($block) ? $block->dataValue('members') : []
+        return $view->formCollection($form) . $view->partial('common/admin/card-grid', [
+            'cards' => ($block) ? $block->dataValue('cards') : []
         ]);
     }
 
     public function render(PhpRenderer $view, SitePageBlockRepresentation $block)
     {
-        return $view->partial('common/block-layout/team-members', [
+        return $view->partial('common/block-layout/card-grid', [
             'header' => $block->dataValue('header'),
-            'members' => $block->dataValue('members')
+            'cards' => $block->dataValue('cards')
         ]);
     }
 }

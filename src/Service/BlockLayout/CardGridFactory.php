@@ -2,14 +2,14 @@
 namespace PageBlocks\Service\BlockLayout;
 
 use Interop\Container\ContainerInterface;
-use PageBlocks\Site\BlockLayout\TeamMembers;
+use PageBlocks\Site\BlockLayout\CardGrid;
 use Laminas\ServiceManager\Factory\FactoryInterface;
 
-class TeamMembersFactory implements FactoryInterface
+class CardGridFactory implements FactoryInterface
 {
     public function __invoke(ContainerInterface $services, $requestedName, array $options = null)
     {
-        return new TeamMembers(
+        return new CardGrid(
             $services->get('FormElementManager'));
     }
 }

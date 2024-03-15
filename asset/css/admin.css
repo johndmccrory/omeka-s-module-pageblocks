@@ -3,7 +3,7 @@
 }
 
 .block .attachments.topics .attachment,
-.block .attachments.members .attachment,
+.block .attachments.cards .attachment,
 .block .attachments.accordions .attachment {
     line-height: 1;
     padding: 5px 6px;
@@ -20,7 +20,7 @@
 }
 
 .topic-form-add,
-.member-form-add,
+.card-form-add,
 .accordion-form-add {
     margin-top: 10px;
 }

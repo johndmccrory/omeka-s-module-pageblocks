@@ -315,28 +315,28 @@ html.theme-multilingual #content > .call-to-action:last-child {
     margin: 3px 0 6px;
 }
 
-.team-members-container {
+.card-grid-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     gap: 32px;
 }
 
-.member-single {
+.card-single {
     display: flex;
     gap: 24px;
 }
 
-.member-single h3 {
+.card-single h3 {
     font-size: 1.3em;
     margin-block: 0 12px;
 }
 
-.member-single p {
+.card-single p {
     opacity: 0.75;
     margin: 0;
 }
 
-.member-single img {
+.card-single img {
     display: block;
     width: 85px;
     aspect-ratio: 1;

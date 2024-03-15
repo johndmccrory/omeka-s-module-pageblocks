@@ -5,40 +5,40 @@ use Laminas\Form\Element;
 use Laminas\Form\Fieldset;
 use Omeka\Form\Element as OmekaElement;
 
-class TeamMembersSidebarForm extends Fieldset
+class CardGridSidebarForm extends Fieldset
 {
     public function init()
     {
         $this->add([
-            'name' => 'o:block[__blockIndex__][o:data][topics][__attachmentIndex__][name]',
+            'name' => 'o:block[__blockIndex__][o:data][cards][__attachmentIndex__][name]',
             'type' => Element\Text::class,
             'options' => [
-                'label' => 'Member name' // @translate
+                'label' => 'Card header' // @translate
             ],
             'attributes' => [
-                'data-sidebar-id' => 'member-data-name'
+                'data-sidebar-id' => 'card-data-header'
             ]
         ]);
         
         $this->add([
-            'name' => 'o:block[__blockIndex__][o:data][topics][__attachmentIndex__][description]',
+            'name' => 'o:block[__blockIndex__][o:data][cards][__attachmentIndex__][description]',
             'type' => Element\Text::class,
             'options' => [
-                'label' => 'Member description' // @translate
+                'label' => 'Card body' // @translate
             ],
             'attributes' => [
-                'data-sidebar-id' => 'member-data-description'
+                'data-sidebar-id' => 'card-data-body'
             ]
         ]);
         
         $this->add([
-            'name' => 'o:block[__blockIndex__][o:data][topics][__attachmentIndex__][avatar]',
+            'name' => 'o:block[__blockIndex__][o:data][cards][__attachmentIndex__][icon]',
             'type' => OmekaElement\Asset::class,
             'options' => [
-                'label' => 'Member avatar' // @translate
+                'label' => 'Card icon' // @translate
             ],
             'attributes' => [
-                'data-sidebar-id' => 'member-data-avatar'
+                'data-sidebar-id' => 'card-data-icon'
             ]
         ]);
     }
