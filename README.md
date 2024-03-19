@@ -22,7 +22,11 @@ There are also resource page blocks available:
 
 Use the zipped releases provided on GitHub for a standard install.
 
-You may also clone the git repository and rename the folder to `PageBlocks`.
+You may also clone the git repository, rename the folder to `PageBlocks`, and build from source with:
+
+```
+composer install --no-dev
+```
 
 ## License
 

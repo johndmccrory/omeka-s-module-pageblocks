@@ -2,6 +2,9 @@
 
 namespace PageBlocks;
 
+require __DIR__ . '/vendor/autoload.php';
+
+use Common\TraitModule;
 use Omeka\Module\AbstractModule;
 use Laminas\EventManager\SharedEventManagerInterface;
 use PageBlocks\Form\TopicsListSidebarForm;
@@ -10,7 +13,9 @@ use PageBlocks\Form\AccordionGroupSidebarForm;
 
 class Module extends AbstractModule
 {
-    /** Module body **/
+    const NAMESPACE = __NAMESPACE__;
+
+    use TraitModule;
 
     /**
      * Get this module's configuration array.
