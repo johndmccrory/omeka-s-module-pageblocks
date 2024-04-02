@@ -6,9 +6,12 @@ $this->headLink()->appendStylesheet($assetUrl('css/style.css', 'PageBlocks'));
 ?>
 
 <section class="col-container">
+    <?php if ($header): ?>
+        <h2><?= $header ?></h2>
+    <?php endif; ?>
     <?php foreach ($columns as $column): ?>
         <div class="col-single">
-            <?= $column ?>
+            <?= $column["html"] ?>
         </div>
     <?php endforeach; ?>
 </section>

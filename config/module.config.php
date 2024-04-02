@@ -12,13 +12,11 @@ return [
         'factories' => [
             'accordion-group' => Service\BlockLayout\AccordionGroupFactory::class,
             'call-to-action' => Service\BlockLayout\CallToActionFactory::class,
+            'column-layout' => Service\BlockLayout\ColumnLayoutFactory::class,
             'image-banner' => Service\BlockLayout\ImageBannerFactory::class,
             'jumbotron-search' => Service\BlockLayout\JumbotronSearchFactory::class,
             'media-details' => Service\BlockLayout\MediaDetailsFactory::class,
-            'media-single' => Service\BlockLayout\MediaSingleFactory::class,
             'card-grid' => Service\BlockLayout\CardGridFactory::class,
-            'two-column' => Service\BlockLayout\TwoColumnFactory::class,
-            'three-column' => Service\BlockLayout\ThreeColumnFactory::class,
             'topics-list' => Service\BlockLayout\TopicsListFactory::class
         ],
     ],
@@ -33,11 +31,10 @@ return [
             Form\CallToActionForm::class => Form\CallToActionForm::class,
             Form\ImageBannerForm::class => Form\ImageBannerForm::class,
             Form\JumbotronSearchForm::class => Form\JumbotronSearchForm::class,
-            Form\MediaSingleForm::class => Form\MediaSingleForm::class,
+            Form\ColumnLayoutForm::class => Form\ColumnLayoutForm::class,
+            Form\ColumnHTMLSidebarForm::class => Form\ColumnHTMLSidebarForm::class,
             Form\CardGridForm::class => Form\CardGridForm::class,
             Form\CardGridSidebarForm::class => Form\CardGridSidebarForm::class,
-            Form\TwoColumnForm::class => Form\TwoColumnForm::class,
-            Form\ThreeColumnForm::class => Form\ThreeColumnForm::class,
             Form\TopicsListForm::class => Form\TopicsListForm::class,
             Form\TopicsListSidebarForm::class => Form\TopicsListSidebarForm::class
         ],

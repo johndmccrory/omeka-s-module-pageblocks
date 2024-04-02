@@ -8,11 +8,9 @@ The currently available page blocks are:
 * Image banner
 * Call to action
 * Card grid
+* Column layout
 * List of topics
 * Accordion group
-* Media + single column
-* Two column HTML
-* Three column HTML
 
 There are also resource page blocks available:
 

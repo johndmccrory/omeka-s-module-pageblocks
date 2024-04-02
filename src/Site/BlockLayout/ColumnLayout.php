@@ -7,9 +7,9 @@ use Omeka\Api\Representation\SitePageRepresentation;
 use Omeka\Api\Representation\SitePageBlockRepresentation;
 use Laminas\Form\FormElementManager;
 use Laminas\View\Renderer\PhpRenderer;
-use PageBlocks\Form\MediaSingleForm;
+use PageBlocks\Form\ColumnLayoutForm;
 
-class MediaSingle extends AbstractBlockLayout
+class ColumnLayout extends AbstractBlockLayout
 {
     /**
      * @var FormElementManager
@@ -26,34 +26,36 @@ class MediaSingle extends AbstractBlockLayout
     
     public function getLabel()
     {
-        return 'Media + single column'; // @translate
+        return 'Column layout'; // @translate
+    }
+
+    public function prepareForm(PhpRenderer $view)
+    {
+        $view->headScript()->appendFile($view->assetUrl('js/column-layout.js', 'PageBlocks'));
+        $view->headLink()->appendStylesheet($view->assetUrl('css/admin.css', 'PageBlocks'));
     }
 
     public function form(PhpRenderer $view, SiteRepresentation $site,
         SitePageRepresentation $page = null, SitePageBlockRepresentation $block = null
     ) {
-        $form = $this->formElementManager->get(MediaSingleForm::class);
+        $form = $this->formElementManager->get(ColumnLayoutForm::class);
             
         if ($block && $block->data()) {
             $form->populateValues([
-                'o:block[__blockIndex__][o:data][html]' => $block->dataValue('html')
+                'o:block[__blockIndex__][o:data][header]' => $block->dataValue('header')
             ]);
         }
         
-        $html = $view->blockAttachmentsForm($block);
-        $html .= '<a href="#" class="collapse" aria-label="collapse"><h4>' . $view->translate('Content') . '</h4></a>';
-        $html .= '<div class="collapsible">';
-        $html .= $view->formCollection($form);
-        $html .= '</div>';
-        
-        return $html;
+        return $view->formCollection($form) . $view->partial('common/admin/column-layout', [
+            'columns' => ($block) ? $block->dataValue('columns') : []
+        ]);
     }
 
     public function render(PhpRenderer $view, SitePageBlockRepresentation $block)
     {
-        return $view->partial('common/block-layout/media-single', [
-            'html' => $block->dataValue('html'),
-            'attachments' => $block->attachments()
+        return $view->partial('common/block-layout/column-layout', [
+            'header' => $block->dataValue('header'),
+            'columns' => $block->dataValue('columns'),
         ]);
     }
 }
