@@ -1,5 +1,8 @@
 <?php
 $translate = $this->plugin('translate');
+$assetUrl = $this->plugin('assetUrl');
+
+$this->headScript()->appendFile($assetUrl('js/abstract-sidebar.js', 'PageBlocks'));
 ?>
 
 <div class="sidebar" id="<?= $id ?>">
