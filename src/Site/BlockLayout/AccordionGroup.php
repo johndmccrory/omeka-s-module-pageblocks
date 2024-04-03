@@ -8,7 +8,6 @@ use Omeka\Api\Representation\SitePageBlockRepresentation;
 use Laminas\Form\FormElementManager;
 use Laminas\View\Renderer\PhpRenderer;
 use PageBlocks\Form\AccordionGroupForm;
-use PageBlocks\Form\AccordionGroupSidebarForm;
 
 class AccordionGroup extends AbstractBlockLayout
 {
@@ -47,8 +46,17 @@ class AccordionGroup extends AbstractBlockLayout
             ]);
         }
         
-        return $view->formCollection($form) . $view->partial('common/admin/accordion-group', [
-            'accordions' => ($block) ? $block->dataValue('accordions') : []
+        return $view->formCollection($form) . $view->partial('common/admin/sidebar-list', [
+            'headerText' => 'Accordions', // @translate
+            'addButtonText' => 'Add accordion', // @translate
+            'sidebarId' => 'accordion',
+            'groupKey' => 'accordions',
+            'labelField' => 'title',
+            'keys' => [
+                'title',
+                'html'
+            ],
+            'values' => ($block) ? $block->dataValue('accordions') : []
         ]);
     }
 

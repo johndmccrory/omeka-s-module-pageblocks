@@ -8,7 +8,6 @@ use Omeka\Api\Representation\SitePageBlockRepresentation;
 use Laminas\Form\FormElementManager;
 use Laminas\View\Renderer\PhpRenderer;
 use PageBlocks\Form\TopicsListForm;
-use PageBlocks\Form\TopicsListSidebarForm;
 
 class TopicsList extends AbstractBlockLayout
 {
@@ -53,8 +52,19 @@ class TopicsList extends AbstractBlockLayout
             ]);
         }
         
-        return $view->formCollection($form) . $view->partial('common/admin/topics-list', [
-            'topics' => ($block) ? $block->dataValue('topics') : []
+        return $view->formCollection($form) . $view->partial('common/admin/sidebar-list', [
+            'headerText' => 'Topics', // @translate
+            'addButtonText' => 'Add topic', // @translate
+            'sidebarId' => 'topic',
+            'groupKey' => 'topics',
+            'labelField' => 'label',
+            'iconField' => 'icon',
+            'keys' => [
+                'label',
+                'icon',
+                'query'
+            ],
+            'values' => $block ? $block->dataValue('topics') : []
         ]);
     }
 

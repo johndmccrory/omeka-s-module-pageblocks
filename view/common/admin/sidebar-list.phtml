@@ -1,0 +1,29 @@
+<?php
+$escape = $this->plugin('escapeHtml');
+
+$options = [
+    'sidebarId' => $sidebarId,
+    'groupKey' => $groupKey,
+    'labelField' => $labelField,
+    'iconField' => $iconField ?? false,
+    'assetFields' => $assetFields ?? [],
+    'keys' => $keys
+];
+
+$template = $escape($this->partial('common/admin/sidebar-item', $options));
+?>
+
+<a href="#" class="collapse" aria-label="collapse">
+    <h4><?= $headerText ?></h4>
+</a>
+<div class="attachments <?= $groupKey ?> collapsible" data-template="<?= $template ?>">
+    <button class="<?= $sidebarId ?>-form-add" type="button">
+        <?= $addButtonText ?>
+    </button>
+    <?php foreach ($values as $value) {
+        echo $this->partial('common/admin/sidebar-item', [
+            'values' => $value,
+            ...$options
+        ]);
+    } ?>
+</div>

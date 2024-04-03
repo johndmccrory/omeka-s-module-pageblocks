@@ -8,7 +8,6 @@ use Omeka\Api\Representation\SitePageBlockRepresentation;
 use Laminas\Form\FormElementManager;
 use Laminas\View\Renderer\PhpRenderer;
 use PageBlocks\Form\CardGridForm;
-use PageBlocks\Form\CardGridSidebarForm;
 
 class CardGrid extends AbstractBlockLayout
 {
@@ -48,8 +47,23 @@ class CardGrid extends AbstractBlockLayout
             ]);
         }
         
-        return $view->formCollection($form) . $view->partial('common/admin/card-grid', [
-            'cards' => ($block) ? $block->dataValue('cards') : []
+        return $view->formCollection($form) . $view->partial('common/admin/sidebar-list', [
+            'headerText' => 'Cards', // @translate
+            'addButtonText' => 'Add card', // @translate
+            'sidebarId' => 'card',
+            'groupKey' => 'cards',
+            'labelField' => 'header',
+            'assetFields' => [
+                'icon'
+            ],
+            'keys' => [
+                'icon',
+                'header',
+                'body',
+                'button_text',
+                'button_link'
+            ],
+            'values' => $block ? $block->dataValue('cards') : []
         ]);
     }
 

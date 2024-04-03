@@ -1,0 +1,42 @@
+<?php
+$translate = $this->plugin('translate');
+
+if (!empty($assetFields)) {
+    /** @var \Omeka\Api\Representation\AssetRepresentation[] $resolvedAssets */
+    $resolvedAssets = [];
+
+    foreach ($assetFields as $assetField) {
+        if (!empty($values[$assetField])) {
+            $asset = $this->api()->read('assets', $values[$assetField])->getContent();
+        }
+        $resolvedAssets[$assetField] = $asset ?? false;
+    }
+}
+?>
+
+<div class="attachment">
+    <span class="sortable-handle"></span>
+    <?php if (!empty($iconField)): ?>
+        <div class="thumbnail fa <?= $values[$iconField] ? "fa-" . $values[$iconField] : "fa-question unspecified"; ?>" aria-hidden="true"></div>
+    <?php endif; ?>
+    <div class="asset-title"><?= $values[$labelField] ?? '' ?></div>
+
+    <ul class="actions">
+        <li><a class="<?= $sidebarId ?>-form-edit o-icon-configure button" title="<?= $translate('Open attachment options') ?>" aria-label="<?= $translate('Open attachment options') ?>"></a></li>
+        <li class="delete"><a class="o-icon-delete button" title="<?= $translate('Delete attachment') ?>" href="#" aria-label="<?= $translate('Delete attachment') ?>"></a></li>
+        <li class="undo"><a class="o-icon-undo button" title="<?= $translate('Restore attachment') ?>" href="#" aria-label="<?= $translate('Restore attachment') ?>"></a></li>
+    </ul>
+    
+    <?php foreach ($keys as $key): ?>
+        <input
+            type="hidden"
+            data-sidebar-id="<?= $sidebarId . "-data-" . str_replace("_", "-", $key); ?>"
+            name="o:block[__blockIndex__][o:data][<?= $groupKey ?>][__attachmentIndex__][<?= $key ?>]"
+            value="<?= $values[$key] ?? '' ?>"
+            <?php if (isset($resolvedAssets[$key])): ?>
+                data-asset-url="<?= $resolvedAssets[$key] ? $resolvedAssets[$key]->assetUrl() : "" ?>"
+                data-asset-filename="<?= $resolvedAssets[$key] ? $resolvedAssets[$key]->name() : "" ?>"
+            <?php endif; ?>
+        />
+    <?php endforeach; ?>
+</div>
