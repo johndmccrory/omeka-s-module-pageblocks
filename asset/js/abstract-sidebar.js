@@ -6,7 +6,7 @@ const initBlockSidebar = (id, updaters) => {
         // Clear all form inputs when adding a new item
         selectingElement = $(this);
         sidebar.find("input, textarea").val("");
-        sidebar.find(".asset-form-clear").click();
+        sidebar.find(".asset-form-clear, .item-form-clear").click();
         openSidebar();
     };
 
@@ -30,20 +30,21 @@ const initBlockSidebar = (id, updaters) => {
             const input = attachment.find("input[data-sidebar-id=\"" + elem.attr("data-sidebar-id") + "\"]")
             elem.val(input.val());
             
-            // Additional handling for saved assets
-            if (input.is("[data-asset-url]")) {
-                const asset = elem.parents(".asset-form-element");
-                const url = input.attr("data-asset-url");
-                const filename = input.attr("data-asset-filename");
+            // Additional handling for saved assets and items
+            if (input.is("[data-resource-type]")) {
+                const type = input.data("resource-type");
+                const form = elem.parents(`.${type}-form-element`);
+
+                const url = input.data('resource-url');
+                const filename = input.data('resource-filename');
 
                 if (url && filename) {
-                    asset.find(".selected-asset-image").attr("src", url);
-                    asset.find(".selected-asset-name").text(filename);
-        
-                    asset.find(".no-selected-asset").hide();
-                    asset.find(".selected-asset, .asset-form-clear").show();
+                    form.find(`.selected-${type}-image`).attr("src", url);
+                    form.find(`.selected-${type}-name`).text(filename);
+                    form.find(`.selected-${type}`).removeAttr("style");
+                    form.removeClass("empty");
                 } else {
-                    asset.find(".asset-form-clear").click();
+                    form.find(`.${type}-form-clear`).click();
                 }
             }
         });
@@ -66,15 +67,16 @@ const initBlockSidebar = (id, updaters) => {
             input.val(elem.val());
 
             // Additional handling for syncing assets
-            if (input.is("[data-asset-url]")) {
-                const asset = elem.parents(".asset-form-element");
+            if (input.is("[data-resource-type]")) {
+                const type = input.data("resource-type");
+                const form = elem.parents(`.${type}-form-element`);
                 const hasValue = Boolean(input.val());
 
-                const url = hasValue ? asset.find(".selected-asset-image").attr("src") : "";
-                const filename = hasValue ? asset.find(".selected-asset-name").text() : "";
+                const url = hasValue ? form.find(`.selected-${type}-image`).attr("src") : "";
+                const filename = hasValue ? form.find(`.selected-${type}-name`).text() : "";
 
-                input.attr("data-asset-url", url);
-                input.attr("data-asset-filename", filename);
+                input.data('resource-url', url);
+                input.data('resource-filename', filename);
             }
             
             // Update the attachment previews based on block type
@@ -92,12 +94,7 @@ const initBlockSidebar = (id, updaters) => {
         selectingElement = newAttachment.find(`.${id}-form-edit`);
     }
 
-    const assetFormClearFix = function () {
-        $(this).siblings(".no-selected-asset").show();
-    };
-
     $("#content").on("click", `.${id}-form-add`, addAttachment);
     $("#content").on("click", `.${id}-form-edit`, editAttachment);
     $("#content").on("click", `#${id}-sidebar .confirm-panel > button`, saveAttachment);
-    $("#content").on("click", `#${id}-sidebar .asset-form-clear`, assetFormClearFix);
 };

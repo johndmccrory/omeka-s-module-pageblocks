@@ -53,8 +53,8 @@ class CardGrid extends AbstractBlockLayout
             'sidebarId' => 'card',
             'groupKey' => 'cards',
             'labelField' => 'header',
-            'assetFields' => [
-                'icon'
+            'resourceFields' => [
+                'icon' => 'asset'
             ],
             'keys' => [
                 'icon',

@@ -1,15 +1,42 @@
 <?php
 $translate = $this->plugin('translate');
 
-if (!empty($assetFields)) {
-    /** @var \Omeka\Api\Representation\AssetRepresentation[] $resolvedAssets */
-    $resolvedAssets = [];
+if (!empty($resourceFields)) {
+    $resolvedResources = [];
 
-    foreach ($assetFields as $assetField) {
-        if (!empty($values[$assetField])) {
-            $asset = $this->api()->read('assets', $values[$assetField])->getContent();
+    foreach ($resourceFields as $resourceField => $resourceType) {
+        // Maintain blank values as default to trigger a form reset
+        $resourceValues = [
+            'type' => $resourceType,
+            'filename' => '',
+            'url' => ''
+        ];
+
+        if (!empty($values[$resourceField])) {
+            $resource = $this->api()->read($resourceType . 's', $values[$resourceField])->getContent();
         }
-        $resolvedAssets[$assetField] = $asset ?? false;
+                
+        if (!empty($resource)) {
+            if ($resourceType == "asset") {
+                $resourceValues['filename'] = $resource->filename();
+                $resourceValues['url'] = $resource->assetUrl();
+            } else if ($resourceType == "item") {
+                $resourceValues['filename'] = $resource->title();
+                $resourceValues['url'] = $resource->primaryMedia()->thumbnailUrl('image/jpeg');
+            }
+            unset($resource);
+        }
+
+        $resolvedResources[$resourceField] = $resourceValues;
+    }
+}
+
+$label = '';
+if (!empty($values)) {
+    if (is_callable($labelField)) {
+        $label = $labelField($values);
+    } else {
+        $label = $values[$labelField] ?? '';
     }
 }
 ?>
@@ -19,7 +46,7 @@ if (!empty($assetFields)) {
     <?php if (!empty($iconField)): ?>
         <div class="thumbnail fa <?= $values[$iconField] ? "fa-" . $values[$iconField] : "fa-question unspecified"; ?>" aria-hidden="true"></div>
     <?php endif; ?>
-    <div class="asset-title"><?= $values[$labelField] ?? '' ?></div>
+    <div class="asset-title"><?= $label ?></div>
 
     <ul class="actions">
         <li><a class="<?= $sidebarId ?>-form-edit o-icon-configure button" title="<?= $translate('Open attachment options') ?>" aria-label="<?= $translate('Open attachment options') ?>"></a></li>
@@ -33,10 +60,9 @@ if (!empty($assetFields)) {
             data-sidebar-id="<?= $sidebarId . "-data-" . str_replace("_", "-", $key); ?>"
             name="o:block[__blockIndex__][o:data][<?= $groupKey ?>][__attachmentIndex__][<?= $key ?>]"
             value="<?= $values[$key] ?? '' ?>"
-            <?php if (isset($resolvedAssets[$key])): ?>
-                data-asset-url="<?= $resolvedAssets[$key] ? $resolvedAssets[$key]->assetUrl() : "" ?>"
-                data-asset-filename="<?= $resolvedAssets[$key] ? $resolvedAssets[$key]->name() : "" ?>"
-            <?php endif; ?>
+            <?php foreach ($resolvedResources[$key] ?? [] as $resourceKey => $resourceValue): ?>
+                data-resource-<?= $resourceKey ?>="<?= $resourceValue ?>"
+            <?php endforeach; ?>
         />
     <?php endforeach; ?>
 </div>
