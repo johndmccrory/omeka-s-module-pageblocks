@@ -32,7 +32,7 @@ return [
             Form\ImageBannerForm::class => Form\ImageBannerForm::class,
             Form\JumbotronSearchForm::class => Form\JumbotronSearchForm::class,
             Form\ColumnLayoutForm::class => Form\ColumnLayoutForm::class,
-            Form\ColumnHTMLSidebarForm::class => Form\ColumnHTMLSidebarForm::class,
+            Form\ColumnLayoutSidebarForm::class => Form\ColumnLayoutSidebarForm::class,
             Form\CardGridForm::class => Form\CardGridForm::class,
             Form\CardGridSidebarForm::class => Form\CardGridSidebarForm::class,
             Form\TopicsListForm::class => Form\TopicsListForm::class,
@@ -40,9 +40,17 @@ return [
         ],
     ],
     'view_helpers' => [
+        'invokables' => [
+            'formItem' => Form\View\Helper\FormItem::class
+        ],
         'factories' => [
             'sidebar' => Service\View\Helper\SidebarViewHelperFactory::class
-        ]
+        ],
+        'delegators' => [
+            'Laminas\Form\View\Helper\FormElement' => [
+                Service\Delegator\FormElementDelegatorFactory::class
+            ]
+        ],
     ],
     'translator' => [
         'translation_file_patterns' => [
