@@ -6,6 +6,10 @@ const initBlockSidebar = (id, updaters) => {
         // Clear all form inputs when adding a new item
         selectingElement = $(this);
         sidebar.find("input, textarea").val("");
+        sidebar.find("select").each(function () {
+            const defaultVal = $(this).find("option").first().val();
+            $(this).val(defaultVal);
+        });
         sidebar.find(".asset-form-clear, .item-form-clear").click();
         openSidebar();
     };
@@ -23,7 +27,7 @@ const initBlockSidebar = (id, updaters) => {
     };
 
     const populateSidebarFields = function () {
-        sidebar.find("input, textarea").each(function (index, elem) {
+        sidebar.find("input, textarea, select").each(function (index, elem) {
             elem = $(elem);
             
             const attachment = selectingElement.parents(".attachment");
@@ -58,7 +62,7 @@ const initBlockSidebar = (id, updaters) => {
             insertAttachmentTemplate();
         }
         
-        sidebar.find("input, textarea").each(function (index, elem) {
+        sidebar.find("input, textarea, select").each(function (index, elem) {
             elem = $(elem);
             
             // Sync the form values with the hidden inputs
