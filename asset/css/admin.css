@@ -4,7 +4,8 @@
 
 .block .attachments.topics .attachment,
 .block .attachments.cards .attachment,
-.block .attachments.accordions .attachment {
+.block .attachments.accordions .attachment,
+.block .attachments.columns .attachment {
     line-height: 1;
     padding: 5px 6px;
 }
@@ -21,6 +22,7 @@
 
 .topic-form-add,
 .card-form-add,
-.accordion-form-add {
+.accordion-form-add,
+.column-form-add {
     margin-top: 10px;
 }

@@ -48,12 +48,29 @@ class ColumnLayout extends AbstractBlockLayout
         
         return $view->formCollection($form) . $view->partial('common/admin/sidebar-list', [
             'headerText' => 'Columns', // @translate
-            'addButtonText' => 'Add HTML column', // @translate
-            'sidebarId' => 'column-html',
+            'addButtonText' => 'Add column', // @translate
+            'sidebarId' => 'column',
             'groupKey' => 'columns',
-            'labelField' => 'html',
+            'labelField' => function ($values) {
+                if ($values["type"] == 'html') {
+                    return 'HTML content'; // @translate
+                } else if ($values["type"] == 'asset') {
+                    return 'Image asset'; // @translate
+                } else if ($values["type"] == 'item') {
+                    return 'Item media'; // @translate
+                } else {
+                    return '';
+                }
+            },
+            'resourceFields' => [
+                'asset' => 'asset',
+                'item' => 'item'
+            ],
             'keys' => [
-                'html'
+                'type',
+                'html',
+                'asset',
+                'item'
             ],
             'values' => $block ? $block->dataValue('columns') : []
         ]);

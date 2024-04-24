@@ -1,7 +1,13 @@
 $(document).ready(function () {
-    initBlockSidebar("column-html", {
-        html: attachment => {
-            attachment.find(".asset-title").text("HTML column");
+    initBlockSidebar("column", {
+        type: (attachment, elem) => {
+            const type = elem.val();
+            const label = type == "html" ? "HTML content" :
+                type == "asset" ? "Image asset" :
+                type == "item" ? "Item media" : "";
+            attachment.find(".asset-title").text(
+                Omeka.jsTranslate(label)
+            );
         }
     });
 });

@@ -11,7 +11,20 @@ $this->headLink()->appendStylesheet($assetUrl('css/style.css', 'PageBlocks'));
     <?php endif; ?>
     <?php foreach ($columns as $column): ?>
         <div class="col-single">
-            <?= $column["html"] ?>
+            <?php if ($column["type"] == "html"): ?>
+                <?= $column["html"] ?>
+            <?php endif; ?>
+            <?php if ($column["type"] == "asset"): ?>
+                <?php $asset = $this->api()->read('assets', $column['asset'])->getContent(); ?>
+                <img src="<?= $asset->assetUrl() ?>" alt="<?= $asset->altText() ?>" />
+            <?php endif; ?>
+            <?php if ($column["type"] == "item"): ?>
+                <?php $item = $this->api()->read('items', $column['item'])->getContent(); ?>
+                <?php echo $item->primaryMedia()->render([
+                    'hideTranscript' => true,
+                    'compactMode' => true,
+                ]); ?>
+            <?php endif; ?>
         </div>
     <?php endforeach; ?>
 </section>

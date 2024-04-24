@@ -61,6 +61,11 @@ return [
                 'text_domain' => null,
             ],
         ],
+    ],
+    'js_translate_strings' => [
+        'HTML content', // @translate
+        'Image asset', // @translate
+        'Item media' // @translate
     ]
 ];
 
