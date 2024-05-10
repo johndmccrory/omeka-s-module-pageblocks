@@ -40,17 +40,9 @@ return [
         ],
     ],
     'view_helpers' => [
-        'invokables' => [
-            'formItem' => Form\View\Helper\FormItem::class
-        ],
         'factories' => [
             'sidebar' => Service\View\Helper\SidebarViewHelperFactory::class
-        ],
-        'delegators' => [
-            'Laminas\Form\View\Helper\FormElement' => [
-                Service\Delegator\FormElementDelegatorFactory::class
-            ]
-        ],
+        ]
     ],
     'translator' => [
         'translation_file_patterns' => [
