@@ -8,7 +8,6 @@ The currently available page blocks are:
 * Image banner
 * Call to action
 * Card grid
-* Column layout
 * List of topics
 * Accordion group
 

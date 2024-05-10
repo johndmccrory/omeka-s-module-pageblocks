@@ -12,7 +12,6 @@ return [
         'factories' => [
             'accordion-group' => Service\BlockLayout\AccordionGroupFactory::class,
             'call-to-action' => Service\BlockLayout\CallToActionFactory::class,
-            'column-layout' => Service\BlockLayout\ColumnLayoutFactory::class,
             'image-banner' => Service\BlockLayout\ImageBannerFactory::class,
             'jumbotron-search' => Service\BlockLayout\JumbotronSearchFactory::class,
             'media-details' => Service\BlockLayout\MediaDetailsFactory::class,
@@ -31,8 +30,6 @@ return [
             Form\CallToActionForm::class => Form\CallToActionForm::class,
             Form\ImageBannerForm::class => Form\ImageBannerForm::class,
             Form\JumbotronSearchForm::class => Form\JumbotronSearchForm::class,
-            Form\ColumnLayoutForm::class => Form\ColumnLayoutForm::class,
-            Form\ColumnLayoutSidebarForm::class => Form\ColumnLayoutSidebarForm::class,
             Form\CardGridForm::class => Form\CardGridForm::class,
             Form\CardGridSidebarForm::class => Form\CardGridSidebarForm::class,
             Form\TopicsListForm::class => Form\TopicsListForm::class,
@@ -53,11 +50,6 @@ return [
                 'text_domain' => null,
             ],
         ],
-    ],
-    'js_translate_strings' => [
-        'HTML content', // @translate
-        'Image asset', // @translate
-        'Item media' // @translate
     ]
 ];
 

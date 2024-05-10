@@ -10,7 +10,6 @@ use Laminas\EventManager\SharedEventManagerInterface;
 use PageBlocks\Form\TopicsListSidebarForm;
 use PageBlocks\Form\CardGridSidebarForm;
 use PageBlocks\Form\AccordionGroupSidebarForm;
-use PageBlocks\Form\ColumnLayoutSidebarForm;
 
 class Module extends AbstractModule
 {
@@ -43,7 +42,6 @@ class Module extends AbstractModule
         echo $view->sidebar('topic-sidebar', TopicsListSidebarForm::class);
         echo $view->sidebar('card-sidebar', CardGridSidebarForm::class);
         echo $view->sidebar('accordion-sidebar', AccordionGroupSidebarForm::class);
-        echo $view->sidebar('column-sidebar', ColumnLayoutSidebarForm::class);
     }
 }
 
