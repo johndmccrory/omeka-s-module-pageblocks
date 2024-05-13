@@ -35,7 +35,76 @@ $migrators = [
             'cards' => $newCards
         ]);
 
-        return [ $newBlock ];
+        return [
+            'blocks' => [ $newBlock ]
+        ];
+    },
+    'two-column' => function (SitePageBlock $oldBlock) {
+        $oldData = $oldBlock->getData();
+        
+        $newBlockOne = new SitePageBlock();
+        $newBlockOne->setLayout('html');
+        $newBlockOne->setData([
+            'html' => $oldData['html1']
+        ]);
+        
+        $newBlockTwo = clone $newBlockOne;
+        $newBlockTwo->setData([
+            'html' => $oldData['html2']
+        ]);
+        
+        return [
+            'blocks' => [ $newBlockOne, $newBlockTwo ]
+        ];
+    },
+    'three-column' => function (SitePageBlock $oldBlock) {
+        $oldData = $oldBlock->getData();
+        
+        $newBlockOne = new SitePageBlock();
+        $newBlockOne->setLayout('html');
+        $newBlockOne->setData([
+            'html' => $oldData['html1']
+        ]);
+        
+        $newBlockTwo = clone $newBlockOne;
+        $newBlockTwo->setData([
+            'html' => $oldData['html2']
+        ]);
+        
+        $newBlockThree = clone $newBlockTwo;
+        $newBlockThree->setData([
+            'html' => $oldData['html3']
+        ]);
+        
+        return [
+            'blocks' => [ $newBlockOne, $newBlockTwo, $newBlockThree ]
+        ];
+    },
+    'media-single' => function (SitePageBlock $oldBlock) {
+        $newBlockOne = new SitePageBlock();
+        $newBlockOne->setLayout('media');
+        $newBlockOne->setData([
+            'layout' => '',
+            'media_display' => '',
+            'thumbnail_type' => 'large',
+            'show_title_option' => 'no_title'
+        ]);
+
+        $newAttachments = [];
+        foreach ($oldBlock->getAttachments() as $oldAttachment) {
+            $newAttachment = clone $oldAttachment;
+            $newAttachment->setBlock($newBlockOne);
+            $newAttachments[] = $newAttachment;
+        }
+        
+        $newBlockTwo = new SitePageBlock();
+        $newBlockTwo->setLayout('html');
+        $newBlockTwo->setData($oldBlock->getData());
+
+        return [
+            'blocks' => [ $newBlockOne, $newBlockTwo ],
+            'attachments' => $newAttachments
+        ];
     }
 ];
 
@@ -77,10 +146,14 @@ function migrateAffectedPage(array $migrators, EntityManager $manager, SitePage 
 
         $newObjects = $migrators[$layout]($block);
 
-        foreach ($newBlocks as $newBlock) {
+        foreach ($newObjects['blocks'] as $newBlock) {
             $newBlock->setPage($block->getPage());
             $newBlock->setPosition($basePosition + $deltaPosition++);
             $manager->persist($newBlock);
+        }
+
+        foreach ($newObjects['attachments'] ?? [] as $newAttachment) {
+            $manager->persist($newAttachment);
         }
 
         $manager->remove($block);
